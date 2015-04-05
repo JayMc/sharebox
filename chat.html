@@ -1,0 +1,35 @@
+
+<template name="rooms">
+{{#each rooms}}
+	{{> room}}
+{{/each}}
+
+</template>
+
+<template name="room">
+	<h3>{{roomName}}</h3>
+
+	<div class="well chatMsgBox">
+		{{#each msgs}}
+			{{msg}} ({{createdAt}})
+		{{/each}}
+	</div>
+
+	<form id="newMessage">
+		<div class="input-group">
+			<input type="text" class="form-control" name="message" placeholder="message"/>
+			<input type="hidden" name="room_id" value="{{_id}}" />
+			<span class="input-group-btn">
+				<input class="btn btn-default" type="submit" value="Send">
+			</span>
+		</div>
+	</form>
+</template>
+
+<template name="newRoom">
+	<h3>New Room</h3>
+	<form id="newRoomForm">
+		<input type="text" name="newRoomName" />
+		<input class="btn" type="submit">
+	</form>
+</template>
